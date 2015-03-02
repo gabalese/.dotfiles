@@ -7,6 +7,7 @@ stuff = [
     '.vimrc',
     '.tmux.conf',
     '.tigrc',
+    '.zshrc'
 ]
 
 

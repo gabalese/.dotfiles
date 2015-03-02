@@ -19,6 +19,7 @@ filetype off "don't delete from here...
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+Bundle 'etnadji/vim-epub'
 
 " below are some plugins to make your life easier. uncomment and :BundleInstall
 " when you feel brave enough. they are all pretty frickin usefull.
