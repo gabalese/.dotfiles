@@ -82,3 +82,19 @@ export WORKON_HOME=$HOME/.envs
 source /usr/local/bin/virtualenvwrapper.sh
 fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="/usr/local/sbin:$PATH"
+alias aps="runfromparent.sh ./manage.py"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Support for bash
+PROMPT_COMMAND='prompt'
+# Mirrored support for zsh. See: https://superuser.com/questions/735660/whats-the-zsh-equivalent-of-bashs-prompt-command/735969#735969 
+precmd() { eval "$PROMPT_COMMAND" }
+
+function prompt()
+{
+    if [ "$PWD" != "$MYOLDPWD" ]; then
+       MYOLDPWD="$PWD"
+       test -e .venv && workon `cat .venv`
+    fi
+}
